@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 import { Card, CardDescription, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ActivityIcon, GitBranchIcon, GitPullRequestIcon, StarIcon, Info, Heart } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -56,7 +55,7 @@ export default function Home() {
           {/* Pollution */}
           <Dialog>
             <DialogTrigger>
-              <Card>
+              <Card className="border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] ">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Pollution Index</CardTitle>
                   <TooltipProvider>
@@ -92,7 +91,7 @@ export default function Home() {
           {/* Safety Index */}
           <Dialog>
             <DialogTrigger>
-              <Card>
+              <Card className="border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] ">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Safety Index</CardTitle>
                   <TooltipProvider>
@@ -124,7 +123,7 @@ export default function Home() {
           {/* Health index */}
           <Dialog>
             <DialogTrigger>
-              <Card>
+              <Card className="border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] ">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Health index</CardTitle>
                   <TooltipProvider>
@@ -152,7 +151,7 @@ export default function Home() {
           </Dialog>
           <Dialog>
             <DialogTrigger>
-              <Card>
+              <Card className="border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] ">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Traffic Time</CardTitle>
                   <TooltipProvider>
@@ -179,7 +178,9 @@ export default function Home() {
             </DialogContent>
           </Dialog>
         </div>
-        <Button type="submit">Submit</Button>
+        <Button className="bg-white text-black border-black border-2 shadow-[3px_4px_0px_rgba(0,0,0,1)]" type="submit">
+          Submit
+        </Button>
       </section>
     </>
   );

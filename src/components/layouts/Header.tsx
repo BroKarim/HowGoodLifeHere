@@ -5,7 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Icons } from "@/components/icons";
 import { appConfig } from "@/config/app";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+// import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { mainMenu } from "@/config/menu";
 import { ChevronDownIcon, ViewVerticalIcon } from "@radix-ui/react-icons";
@@ -18,21 +18,25 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-black  bg-[#88aaee]">
       <div className="container px-4 md:px-8 flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
           <NavLink to="/" className="mr-6 flex items-center space-x-2">
             <Logo />
           </NavLink>
           <nav className="flex items-center space-x-6 text-sm font-medium">
-            {mainMenu.map(
+            {mainMenu.map((menu, index) => (
+              <NavLink key={index} to={menu.to ?? ""} className={({ isActive }) => cn("text-sm font-medium transition-colors hover:text-primary", isActive ? "text-foreground" : "text-foreground/60")}>
+                {menu.title}
+              </NavLink>
+            ))}
+            {/* {mainMenu.map(
               (menu, index) =>
-                menu.items !== undefined && ( // Use `&&` for conditional rendering
                   <NavLink key={index} to={menu.to ?? ""} className={({ isActive }) => cn("text-sm font-medium transition-colors hover:text-primary", isActive ? "text-foreground" : "text-foreground/60")}>
                     {menu.title}
                   </NavLink>
                 )
-            )}
+            )} */}
           </nav>
         </div>
         {/* mobile */}
@@ -137,25 +141,6 @@ export function Header() {
                 <span className="sr-only">GitHub</span>
               </div>
             </a>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                  <Avatar className="h-8 w-8">
-                    <AvatarFallback>SC</AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">shadcn</p>
-                    <p className="text-xs leading-none text-muted-foreground">m@example.com</p>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>Log out</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
           </nav>
         </div>
       </div>
