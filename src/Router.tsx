@@ -17,7 +17,7 @@ export const router = createBrowserRouter(
           element: <Home />,
         },
         {
-          path: "Document",
+          path: "/document",
           element: <Document />,
         },
       ],

@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from "@/components/ui/button";
 import ScrollableProgress from "@/components/progress-bar";
 import DiscreteProgressInput from "@/components/discreate-progress-bar";
-
+import LiveabilityCalculator from "./slider-page";
 const pollutionOptions = [
   { label: "Very Clean", value: 10 },
   { label: "Clean", value: 30 },
@@ -181,6 +181,9 @@ export default function Home() {
         <Button className="bg-white text-black border-black border-2 shadow-[3px_4px_0px_rgba(0,0,0,1)]" type="submit">
           Submit
         </Button>
+      </section>
+      <section className="mt-20">
+        <LiveabilityCalculator />
       </section>
     </>
   );
